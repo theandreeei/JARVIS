@@ -20,8 +20,9 @@ def command(words):
         task=r.recognize_google(audio, language='ru-RU').lower()
         print(f'You: {task}')
     except sr.UnknownValueError:
+        print('dont understand')
         talk("Don't understand")
-        task=command()
+        task=command(words)
     return task
 
 
@@ -34,7 +35,6 @@ def make_something(what):
         sys.exit()
     elif 'name' in what:
         talk('My name is JARVIS')
-
 
 
 engine=pyttsx3.init()
